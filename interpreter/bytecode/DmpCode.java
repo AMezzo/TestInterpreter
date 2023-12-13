@@ -15,4 +15,9 @@ public class DmpCode extends ByteCode {
     public void execute(VirtualMachine vm) {
         vm.setDumpMode(dumpState);
     }
+
+    @Override
+    public String toString() {
+        return "DMP " + (dumpState ? "+" : "-");
+    }
 }

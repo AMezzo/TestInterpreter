@@ -1,3 +1,4 @@
+
 package interpreter;
 
 import java.util.Stack;
@@ -41,12 +42,15 @@ public class VirtualMachine {
         while (this.isRunning) {
             ByteCode code = this.program.getCode(this.pc);
             code.execute(this);
-
             if (this.isDumping) {
-                System.out.println(runStack); 
+                System.out.println("Dumping: " + code.toString());
+                System.out.println(runStack);
             }
-
             this.pc++;
         }
+    }
+
+    public void pushRunStack(int value) {
+        runStack.push(value);
     }
 }

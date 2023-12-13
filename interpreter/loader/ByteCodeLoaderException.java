@@ -2,14 +2,15 @@ package interpreter.loader;
 
 public class ByteCodeLoaderException extends Exception {
 
-  private String byteCodeFileLine;
+    private String byteCodeFileLine;
 
-  public ByteCodeLoaderException(String byteCodeFileLine) {
-    this.byteCodeFileLine = byteCodeFileLine;
-  }
+    public ByteCodeLoaderException(String byteCodeFileLine, String message) {
+        super(message);
+        this.byteCodeFileLine = byteCodeFileLine;
+    }
 
-  @Override
-  public String getMessage() {
-    return String.format("Error loading byte code [%s]", this.byteCodeFileLine);
-  }
+    @Override
+    public String getMessage() {
+        return "Error loading byte code at line: " + byteCodeFileLine + " - " + super.getMessage();
+    }
 }

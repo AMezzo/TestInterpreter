@@ -14,34 +14,32 @@ public class RuntimeStack {
   }
 
   public int peek() {
-    return 0;
+    if(runStack.size() == 0) {
+      throw new EmptyStackException("Attempted to peek on an empty stack.");
+    }
+    return runStack.lastElement();
   }
 
   public int pop() {
-    return 0;
+    if(runStack.size() == 0) {
+      throw new EmptyStackException("Attempted to pop from an empty stack.");
+    }
+    return runStack.remove(runStack.size() - 1);
   }
 
   public int push(int value) {
-    return 0;
+    runStack.add(value);
+    return value;
   }
 
   public Integer push(Integer value) {
-    return 0;
+    runStack.add(value);
+    return value;
   }
 
-  public void newFrameAt(int offset) {
-
-  }
-
-  public void popFrame() {
-
-  }
-
-  public int store(int offset) {
-    return 0;
-  }
-
-  public int load(int offset) {
-    return 0;
+  class EmptyStackException extends RuntimeException {
+    public EmptyStackException(String message) {
+      super(message);
+    }
   }
 }

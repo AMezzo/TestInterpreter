@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import interpreter.Program;
+import interpreter.loader.Program;
 import interpreter.bytecode.ByteCode;
 
 public class ByteCodeLoader {
@@ -18,8 +18,8 @@ public class ByteCodeLoader {
 
     public Program loadCodes() throws ByteCodeLoaderException {
         Program program = new Program();
+        String line = null;
         try {
-            String line;
             while ((line = byteSource.readLine()) != null) {
                 List<String> byteCodeArgs = new ArrayList<>();
                 String[] parts = line.split("\\s+");
@@ -34,7 +34,7 @@ public class ByteCodeLoader {
                 program.addCode(byteCode);
             }
         } catch (Exception e) {
-            throw new ByteCodeLoaderException(e.getMessage());
+            throw new ByteCodeLoaderException(line, e.getMessage());
         }
         return program;
     }
