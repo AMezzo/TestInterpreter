@@ -14,7 +14,7 @@ public class CodeTable {
   private static void init() {
     codes.put("LIT", "interpreter.bytecode.LitCode");
     codes.put("DMP", "interpreter.bytecode.DmpCode");
-    codes.put("FALSBRANCH", "interpreter.bytecode.FalsebranchCode");
+    codes.put("FALSEBRANCH", "interpreter.bytecode.FalsebranchCode");
     codes.put("GOTO", "interpreter.bytecode.GotoCode");
     codes.put("HALT", "interpreter.bytecode.HaltCode");
     codes.put("LABEL", "interpreter.bytecode.LabelCode");
