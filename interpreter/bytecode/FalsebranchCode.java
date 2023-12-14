@@ -22,11 +22,6 @@ public class FalsebranchCode extends ByteCode {
     }
 
     @Override
-    public void resolveAddrs(int address) {
-        this.targetAddress = address;
-    }
-
-    @Override
     public String toString() {
         return "FALSEBRANCH " + label;
     }

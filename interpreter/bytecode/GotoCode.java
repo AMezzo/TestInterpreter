@@ -20,11 +20,6 @@ public class GotoCode extends ByteCode {
     }
 
     @Override
-    public void resolveAddrs(int address) {
-        this.targetAddress = address;
-    }
-
-    @Override
     public String toString() {
         return "GOTO " + label;
     }
