@@ -19,6 +19,12 @@ public class VirtualMachine {
         this.runStack = new RuntimeStack();
     }
 
+    public VirtualMachine(Program program, Stack<Integer> returnAddresses, RuntimeStack runStack) {
+        this.program = program;
+        this.returnAddresses = returnAddresses;
+        this.runStack = runStack;
+    }
+
     public int getPC() {
         return this.pc;
     }
@@ -67,5 +73,9 @@ public class VirtualMachine {
         runStack.push(value);
     }
 
+    public void loadRunStack(int offset) {
+    int value = runStack.peekAtOffset(offset); 
+    runStack.push(value);
+}
     
 }

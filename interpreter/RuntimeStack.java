@@ -42,4 +42,12 @@ public class RuntimeStack {
       super(message);
     }
   }
+
+  public int peekAtOffset(int offset) {
+    if (offset < 0 || offset >= runStack.size()) {
+        throw new IllegalArgumentException("Invalid offset: " + offset);
+    }
+    return runStack.elementAt(runStack.size() - 1 - offset);
+}
+
 }
