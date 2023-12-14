@@ -9,18 +9,17 @@ public class StoreCode extends ByteCode {
 
     public StoreCode(List<String> args) {
         super(args);
-        if (args != null && args.size() > 1) {
-            this.offset = Integer.parseInt(args.get(1));
-            if (args.size() > 2) {
-                this.id = args.get(2);
-            }
-        }
+        this.offset = Integer.parseInt(args.get(1));
+        this.id = args.size() > 2 ? args.get(2) : "";
     }
 
     @Override
     public void execute(VirtualMachine vm) {
         int value = vm.popRunStack();
         vm.storeRunStack(offset, value);
+        if (!id.isEmpty()) {
+            System.out.println("STORE " + offset + " " + id + " " + id + " = " + value);
+        }
     }
 
     @Override
