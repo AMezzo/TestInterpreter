@@ -44,10 +44,14 @@ public class RuntimeStack {
   }
 
   public int peekAtOffset(int offset) {
-    if (offset < 0 || offset >= runStack.size()) {
-        throw new IllegalArgumentException("Invalid offset: " + offset);
+    if (!framePointers.isEmpty()) {
+        int frameStart = framePointers.peek();
+        int absoluteOffset = frameStart + offset;
+        if (absoluteOffset < runStack.size()) {
+            return runStack.elementAt(absoluteOffset);
+        }
     }
-    return runStack.elementAt(runStack.size() - 1 - offset);
+    throw new IllegalArgumentException("Invalid offset: " + offset);
 }
 
 public void newFrameAt(int offset) {

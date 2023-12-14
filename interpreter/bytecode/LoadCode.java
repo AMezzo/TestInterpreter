@@ -20,6 +20,9 @@ public class LoadCode extends ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         vm.loadRunStack(offset);
+        if (!id.isEmpty()) {
+            System.out.println("LOAD " + offset + " " + id + " <load " + id + ">");
+        }
     }
 
     @Override
