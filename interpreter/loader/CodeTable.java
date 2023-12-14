@@ -24,7 +24,8 @@ public class CodeTable {
     codes.put("ARGS", "interpreter.bytecode.ArgsCode");
     codes.put("WRITE", "interpreter.bytecode.WriteCode");
     codes.put("STORE", "interpreter.bytecode.StoreCode");
-    codes.put("CALL", "interpreter.bytecode.CallCode");    
+    codes.put("CALL", "interpreter.bytecode.CallCode");
+    codes.put("RETURN", "interpreter.bytecode.ReturnCode");    
   }
 
   public static String getClassName(String byteCode) {
