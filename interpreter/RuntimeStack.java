@@ -50,4 +50,8 @@ public class RuntimeStack {
     return runStack.elementAt(runStack.size() - 1 - offset);
 }
 
+public void newFrameAt(int offset) {
+    framePointers.push(runStack.size() - offset);
+}
+
 }

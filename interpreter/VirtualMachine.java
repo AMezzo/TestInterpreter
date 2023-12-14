@@ -77,5 +77,12 @@ public class VirtualMachine {
     int value = runStack.peekAtOffset(offset); 
     runStack.push(value);
 }
-    
+
+    public void newFrameAt(int offset) {
+        runStack.newFrameAt(offset);
+    }
+
+    public int peekRunStack() {
+        return runStack.peek();
+    }
 }
