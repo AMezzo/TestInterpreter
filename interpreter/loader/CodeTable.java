@@ -1,4 +1,3 @@
-
 package interpreter.loader;
 
 import java.util.HashMap;
@@ -15,6 +14,13 @@ public class CodeTable {
   private static void init() {
     codes.put("LIT", "interpreter.bytecode.LitCode");
     codes.put("DMP", "interpreter.bytecode.DmpCode");
+    codes.put("FALSBRANCH", "interpreter.bytecode.FalsebranchCode");
+    codes.put("GOTO", "interpreter.bytecode.GotoCode");
+    codes.put("HALT", "interpreter.bytecode.HaltCode");
+    codes.put("LABEL", "interpreter.bytecode.LabelCode");
+    codes.put("LOAD", "interpreter.bytecode.LoadCode");
+    codes.put("POP", "interpreter.bytecode.PopCode");
+    codes.put("READ", "interpreter.bytecode.ReadCode");
   }
 
   public static String getClassName(String byteCode) {

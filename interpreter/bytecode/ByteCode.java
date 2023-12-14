@@ -1,25 +1,24 @@
-
 package interpreter.bytecode;
 
-import interpreter.VirtualMachine;
 import java.util.List;
 
+import interpreter.VirtualMachine;
+
 public abstract class ByteCode {
+  private String code;
 
-    private List<String> args;
+  public ByteCode(List<String> byteCodeLine) {
+    this.code = byteCodeLine.get(0);
+  }
 
-    public ByteCode(List<String> byteCodeArgs) {
-        this.args = byteCodeArgs;
-    }
+  public String getCode() {
+    return this.code;
+  }
 
-    public List<String> getArgs() {
-        return args;
-    }
+  @Override
+  public String toString() {
+    return this.code;
+  }
 
-    public abstract void execute(VirtualMachine vm);
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + " " + String.join(" ", args);
-    }
+  public abstract void execute(VirtualMachine vm);
 }

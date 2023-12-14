@@ -35,6 +35,19 @@ public class VirtualMachine {
         this.isDumping = mode;
     }
 
+    public int popRunStack() {
+        return runStack.pop();
+    }
+
+    public void setPC(int value) {
+        this.pc = value;
+    }
+
+    public void stopRunning() {
+        this.isRunning = false;
+    }
+
+
     public void executeProgram() {
         this.pc = 0;
         this.isRunning = true;
@@ -53,4 +66,6 @@ public class VirtualMachine {
     public void pushRunStack(int value) {
         runStack.push(value);
     }
+
+    
 }
