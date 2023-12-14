@@ -9,21 +9,19 @@ public class LitCode extends ByteCode {
 
     public LitCode(List<String> byteCodeArgs) {
         super(byteCodeArgs);
-        value = Integer.parseInt(byteCodeArgs.get(1));
-        if (byteCodeArgs.size() > 2) {
-            id = byteCodeArgs.get(2);
-        } else {
-            id = "";
-        }
+        this.value = Integer.parseInt(byteCodeArgs.get(1));
+        this.id = byteCodeArgs.size() > 2 ? byteCodeArgs.get(2) : "";
     }
 
-    @Override
+     @Override
     public void execute(VirtualMachine vm) {
-    vm.pushRunStack(value);
-    if (!id.isEmpty()) {
-        System.out.println(String.format("LIT %d %s  int %s = %d", value, id, id, value));
+        vm.pushRunStack(value);
+        if (!id.isEmpty()) {
+            System.out.println(String.format("LIT %d %s  int %s = %d", value, id, id, value));
+        } else {
+            System.out.println(String.format("LIT %d int %d", value, value));
+        }
     }
-}
 
     @Override
     public String toString() {
