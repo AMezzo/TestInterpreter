@@ -22,7 +22,9 @@ public class CodeTable {
     codes.put("POP", "interpreter.bytecode.PopCode");
     codes.put("READ", "interpreter.bytecode.ReadCode");
     codes.put("ARGS", "interpreter.bytecode.ArgsCode");
-    codes.put("WRITE", "interpreter.bytecode.WriteCode"); 
+    codes.put("WRITE", "interpreter.bytecode.WriteCode");
+    codes.put("STORE", "interpreter.bytecode.StoreCode");
+    codes.put("CALL", "interpreter.bytecode.CallCode");    
   }
 
   public static String getClassName(String byteCode) {
