@@ -54,4 +54,18 @@ public void newFrameAt(int offset) {
     framePointers.push(runStack.size() - offset);
 }
 
+public void store(int offset, int value) {
+        if (!framePointers.isEmpty()) {
+            int frameStart = framePointers.peek();
+            int storeLocation = frameStart + offset;
+            if (storeLocation < runStack.size()) {
+                runStack.set(storeLocation, value);
+            } else {
+                throw new RuntimeException("Invalid offset: " + offset + " for stack frame");
+            }
+        } else {
+            throw new RuntimeException("No frame pointers available");
+        }
+    }
+    
 }

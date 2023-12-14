@@ -76,7 +76,7 @@ public class VirtualMachine {
     public void loadRunStack(int offset) {
     int value = runStack.peekAtOffset(offset); 
     runStack.push(value);
-}
+    }
 
     public void newFrameAt(int offset) {
         runStack.newFrameAt(offset);
@@ -85,4 +85,16 @@ public class VirtualMachine {
     public int peekRunStack() {
         return runStack.peek();
     }
+
+    public void savePC() {
+    this.returnAddresses.push(this.pc);
+    }
+
+    public int popReturnAddress() {
+    return this.returnAddresses.pop();
+    }
+
+    public void storeRunStack(int offset, int value) {
+    this.runStack.store(offset, value);
+}
 }
