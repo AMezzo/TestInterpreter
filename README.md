@@ -8,16 +8,16 @@ Author: Alberto Mezzo
 
 Mark each of the requirements you completed by adding an X in between the square brackets. If you have any comments for a given section, add them in the "Comments from student" section (i.e. I almost finished this, but 3 tests aren't passing).
 
-| Requirement                           | Completed? | Comments from student |
-| ------------------------------------- | ---------- | --------------------- |
-| 1. Standard byte codes implemented    | []         |                       |
-| 2. CodeTable implemented              | []         |                       |
-| 3. ByteCodeLoader implemented         | []         |                       |
-| 4. Program implemented                | []         |                       |
-| 5. RuntimeStack implemented           | []         |                       |
-| 6. New bytecode implemented (DMP)     | []         |                       |
-| 7. Output correct (for byte codes)    | []         |                       |
-| 8. Output correct (for runtime stack) | []         |                       |
+| Requirement                           | Completed?  | Comments from student                      |
+| ------------------------------------- | ----------  | ------------------------------------------ |
+| 1. Standard byte codes implemented    | [X]         | ByteCodes Implemented                      |
+| 2. CodeTable implemented              | [X]         | CodeTable updated with all ByteCodes       |
+| 3. ByteCodeLoader implemented         | [X]         |                                            |
+| 4. Program implemented                | [X]         |                                            |
+| 5. RuntimeStack implemented           | [X]         |                                            |
+| 6. New bytecode implemented (DMP)     | [X]         |                                            |
+| 7. Output correct (for byte codes)    | [X]         |                                            |
+| 8. Output correct (for runtime stack) | [X]         |                                            |
 
 ## Results and Conclusions
 
