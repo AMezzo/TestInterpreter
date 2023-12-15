@@ -1,2 +1,4 @@
-LIT 5
+LIT 6
+ARGS 1
+RETURN func<<1>>
 HALT
