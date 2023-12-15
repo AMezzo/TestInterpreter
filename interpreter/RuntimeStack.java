@@ -10,7 +10,7 @@ public class RuntimeStack {
 
   public RuntimeStack() {
     this.framePointers = new Stack<>();
-    this.runStack = new Vector<>();
+    this.runStack = new Vector<>(100);
   }
 
   public int peek() {
@@ -58,22 +58,34 @@ public void newFrameAt(int offset) {
   if (offset < 0 || runStack.size() < offset) {
       throw new RuntimeException("Invalid frame offset: " + offset);
   }
-  int newFramePointer = runStack.size() - offset;
-  framePointers.push(newFramePointer);
+  if (runStack.size() + offset > runStack.capacity()) {
+      runStack.ensureCapacity(runStack.size() + offset); 
+  }
+  framePointers.push(runStack.size() - offset);
 }
 
+
 public void store(int offset, int value) {
-        if (!framePointers.isEmpty()) {
-            int frameStart = framePointers.peek();
-            int storeLocation = frameStart + offset;
-            if (storeLocation < runStack.size()) {
-                runStack.set(storeLocation, value);
-            } else {
-                throw new RuntimeException("Invalid offset: " + offset + " for stack frame");
-            }
-        } else {
-            throw new RuntimeException("No frame pointers available");
-        }
-    }
+  if (!framePointers.isEmpty() && offset >= 0) {
+      int frameStart = framePointers.peek();
+      int storeLocation = frameStart + offset;
+      if (storeLocation < runStack.size()) {
+          runStack.set(storeLocation, value);
+      } else {
+          throw new RuntimeException("Invalid offset: " + offset + " for stack frame");
+      }
+  } else {
+      throw new RuntimeException("No frame pointers available or invalid offset");
+  }
+}
+
+public void clearCurrentFrame() {
+  if (!framePointers.isEmpty()) {
+      int frameStart = framePointers.pop();
+      while (runStack.size() > frameStart) {
+          runStack.remove(runStack.size() - 1);
+      }
+  }
+  }
     
 }
