@@ -1,16 +1,9 @@
-LIT 5         
-ARGS 0        
-CALL init     
-HALT          
-LABEL init
-LIT 0 i       
-STORE 0 i    
-READ        
-STORE 1 j    
-LIT 10        
-ARGS 1      
-CALL print   
-RETURN        
-LABEL print
-WRITE         
-RETURN        
+ARGS 0
+LIT 10   
+STORE 0  
+LIT 20   
+STORE 1  
+LOAD 0   
+LOAD 1   
+RETURN 
+HALT

@@ -58,9 +58,6 @@ public void newFrameAt(int offset) {
   if (offset < 0 || runStack.size() < offset) {
       throw new RuntimeException("Invalid frame offset: " + offset);
   }
-  if (runStack.size() + offset > runStack.capacity()) {
-      runStack.ensureCapacity(runStack.size() + offset); 
-  }
   framePointers.push(runStack.size() - offset);
 }
 
@@ -87,5 +84,25 @@ public void clearCurrentFrame() {
       }
   }
   }
-    
+
+  @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        int lastFrameIndex = 0;
+        for (int frameIndex : framePointers) {
+            sb.append("[");
+            for (int i = lastFrameIndex; i < frameIndex; i++) {
+                sb.append(runStack.get(i)).append(", ");
+            }
+            sb.append("] ");
+            lastFrameIndex = frameIndex;
+        }
+        sb.append("[");
+        for (int i = lastFrameIndex; i < runStack.size(); i++) {
+            sb.append(runStack.get(i)).append(", ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
 }

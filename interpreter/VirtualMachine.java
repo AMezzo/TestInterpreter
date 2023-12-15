@@ -28,7 +28,7 @@ public class VirtualMachine {
     public int getPC() {
         return this.pc;
     }
-
+    
     public boolean getIsRunning() {
         return this.isRunning;
     }
@@ -63,7 +63,7 @@ public class VirtualMachine {
             code.execute(this);
             if (this.isDumping) {
                 System.out.println("Dumping: " + code.toString());
-                System.out.println(runStack);
+                System.out.println(runStack.toString());
             }
             this.pc++;
         }
