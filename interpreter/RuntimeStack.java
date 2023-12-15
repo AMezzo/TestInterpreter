@@ -55,7 +55,11 @@ public class RuntimeStack {
 }
 
 public void newFrameAt(int offset) {
-    framePointers.push(runStack.size() - offset);
+  if (offset < 0 || runStack.size() < offset) {
+      throw new RuntimeException("Invalid frame offset: " + offset);
+  }
+  int newFramePointer = runStack.size() - offset;
+  framePointers.push(newFramePointer);
 }
 
 public void store(int offset, int value) {

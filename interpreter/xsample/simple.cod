@@ -1,13 +1,2 @@
-// Setup iniziale per simulare una chiamata di funzione
 LIT 5
-ARGS 1
-CALL myFunc<<1>>
-
-// Istruzioni all'interno della "funzione"
-LABEL myFunc<<1>>
-LIT 10
-
-
-RETURN myFunc<<1>>
-
 HALT
